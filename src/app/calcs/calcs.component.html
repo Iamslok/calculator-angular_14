@@ -1,0 +1,46 @@
+<div class="calculator" *ngIf="show">
+    <div class="container" >
+    <h4><b>History</b></h4>
+    <div *ngIf="this.historyList && this.historyList.length">
+    <p *ngFor="let data of historyList">{{data.num1}} {{data.operators}} {{data.num2}} = {{data.Total}}</p>
+    </div>
+    </div>
+</div>
+<b >*clear [C] after performing every operation to store the data in the history</b>
+<div class="calculator">
+	<div class="display" style="padding: 10px;">
+		<input type="text" name="display" id="display" placeholder="0" [value]="display"
+        readonly>
+	</div>
+	<div class="number-pad">
+		<div class="rows">
+			<input type="button" name="c" id="c" value="C"  (click)="clear()">
+            <input type="button" name="c" id="c" value="Show History" style="width: 173px;" (click)="getHistory()">
+		</div>
+		<div class="rows">
+			<input type="button" name="7" id="7" value="7" (click)="addNumber('7')">
+			<input type="button" name="8" id="8" value="8" (click)="addNumber('8')">
+			<input type="button" name="9" id="9" value="9" (click)="addNumber('9')">
+			<input type="button" name="into" id="into" value="*" (click)="setOperation('*')">
+		</div>
+		<div class="rows">
+			<input type="button" name="4" id="4" value="4" (click)="addNumber('4')">
+			<input type="button" name="5" id="5" value="5" (click)="addNumber('5')">
+			<input type="button" name="6" id="6" value="6" (click)="addNumber('6')">
+			<input type="button" name="minus" id="minus" value="-" (click)="setOperation('-')">
+		</div>
+		<div class="rows">
+			<input type="button" name="1" id="1" value="1" (click)="addNumber('1')">
+			<input type="button" name="2" id="2" value="2" (click)="addNumber('2')">
+			<input type="button" name="3" id="3" value="3" (click)="addNumber('3')">
+			<input type="button" name="plus" id="plus" value="+" (click)="setOperation('+')">
+		</div>
+		<div class="rows">
+			<input type="button" name="0" id="" value="0" (click)="addNumber('0')">
+			<input type="button" name="point" id="point" value="." (click)="addNumber('.')">
+            <input type="button" name="divite" value="/" (click)="setOperation('/')"
+            id="btnDivisao">
+			<input type="button" name="equal" id="equal" value="=" (click)="calculate()">
+		</div>
+	</div>
+</div>
